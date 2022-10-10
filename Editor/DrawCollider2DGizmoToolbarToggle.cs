@@ -15,6 +15,7 @@ namespace Kogane.Internal
         private DrawCollider2DGizmoToolbarToggle()
         {
             value = DrawCollider2DGizmoSetting.instance.IsEnable;
+            text  = "Draw Collider 2D Gizmo";
             RegisterCallback<ChangeEvent<bool>>( HandleCallback );
         }
 
