@@ -5,7 +5,7 @@ namespace Kogane.Internal
 {
     internal static class DrawCollider2DGizmo
     {
-        [DrawGizmo( GizmoType.NotInSelectionHierarchy )]
+        [DrawGizmo( GizmoType.NotInSelectionHierarchy | GizmoType.Selected )]
         private static void DrawBoxCollider2D( BoxCollider2D collider, GizmoType type )
         {
             var setting = DrawCollider2DGizmoSetting.instance;
