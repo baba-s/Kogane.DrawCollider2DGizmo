@@ -12,30 +12,17 @@ namespace Kogane.Internal
 
             if ( !setting.IsEnable ) return;
 
-            var bounds = collider.bounds;
-            var min    = bounds.min;
-            var max    = bounds.max;
+            var bounds    = collider.bounds;
+            var min       = bounds.min;
+            var max       = bounds.max;
+            var lineWidth = setting.LineWidth;
 
-            DrawLine( min, new( max.x, min.y, min.z ) );
-            DrawLine( min, new( min.x, max.y, min.z ) );
-            DrawLine( max, new( min.x, max.y, max.z ) );
-            DrawLine( max, new( max.x, min.y, min.z ) );
-        }
+            Handles.color = setting.Color;
 
-        private static void DrawLine( Vector3 from, Vector3 to )
-        {
-            var setting = DrawCollider2DGizmoSetting.instance;
-
-            Handles.DrawBezier
-            (
-                startPosition: from,
-                endPosition: to,
-                startTangent: from,
-                endTangent: to,
-                color: setting.Color,
-                texture: null,
-                width: setting.LineWidth
-            );
+            Handles.DrawLine( min, new( max.x, min.y, min.z ), lineWidth );
+            Handles.DrawLine( min, new( min.x, max.y, min.z ), lineWidth );
+            Handles.DrawLine( max, new( min.x, max.y, max.z ), lineWidth );
+            Handles.DrawLine( max, new( max.x, min.y, min.z ), lineWidth );
         }
     }
 }
