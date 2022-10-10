@@ -10,7 +10,12 @@ namespace Kogane.Internal
         [SerializeField] private Color m_color     = Color.white;
         [SerializeField] private float m_lineWidth = 1;
 
-        public bool  IsEnable  => m_isEnable;
+        public bool IsEnable
+        {
+            get => m_isEnable;
+            set => m_isEnable = value;
+        }
+
         public Color Color     => m_color;
         public float LineWidth => m_lineWidth;
 
