@@ -32,8 +32,10 @@ namespace Kogane.Internal
 
             if ( !setting.IsEnable ) return;
 
-            var radius    = collider.radius;
-            var lineWidth = setting.LineWidth;
+            var transform  = collider.transform;
+            var lossyScale = transform.lossyScale;
+            var scale      = Mathf.Max( lossyScale.x, lossyScale.y );
+            var radius     = collider.radius * scale;
 
             Handles.color = setting.Color;
 
@@ -44,7 +46,7 @@ namespace Kogane.Internal
                 from: Vector3.up * radius,
                 angle: 360,
                 radius: radius,
-                thickness: lineWidth
+                thickness: setting.LineWidth
             );
         }
 
