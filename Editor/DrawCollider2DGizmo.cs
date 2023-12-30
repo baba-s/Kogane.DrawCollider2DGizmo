@@ -5,7 +5,7 @@ namespace Kogane.Internal
 {
     internal static class DrawCollider2DGizmo
     {
-        [DrawGizmo( GizmoType.NotInSelectionHierarchy | GizmoType.Selected )]
+        [DrawGizmo( GizmoType.NotInSelectionHierarchy | GizmoType.Selected | GizmoType.NonSelected )]
         private static void DrawBoxCollider2D( BoxCollider2D collider, GizmoType type )
         {
             var setting = DrawCollider2DGizmoSetting.instance;
@@ -25,7 +25,7 @@ namespace Kogane.Internal
             Handles.DrawLine( max, new( max.x, min.y, min.z ), lineWidth );
         }
 
-        [DrawGizmo( GizmoType.NotInSelectionHierarchy | GizmoType.Selected )]
+        [DrawGizmo( GizmoType.NotInSelectionHierarchy | GizmoType.Selected | GizmoType.NonSelected )]
         private static void DrawCircleCollider2D( CircleCollider2D collider, GizmoType type )
         {
             var setting = DrawCollider2DGizmoSetting.instance;
@@ -50,7 +50,7 @@ namespace Kogane.Internal
             );
         }
 
-        [DrawGizmo( GizmoType.NotInSelectionHierarchy | GizmoType.Selected )]
+        [DrawGizmo( GizmoType.NotInSelectionHierarchy | GizmoType.Selected | GizmoType.NonSelected )]
         private static void DrawPolygonCollider2D( PolygonCollider2D collider, GizmoType type )
         {
             var setting = DrawCollider2DGizmoSetting.instance;
